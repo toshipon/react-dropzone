@@ -33,8 +33,8 @@ var Dropzone = React.createClass({
      'bubbles': true,
      'cancelable': false
     });
-    var node = e.target.getElementsByTagName('input')[0];
-    if (node) {
+    var node = this.getDOMNode().getElementsByTagName('input')[0];
+    if (node && node.type === 'file') {
       node.dispatchEvent(event);
     }
   },
