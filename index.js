@@ -27,14 +27,13 @@ var Dropzone = React.createClass({
   },
 
   handleClick: function(e) {
-    e.preventDefault();
-    var event = new MouseEvent('click', {
-     'view': window,
-     'bubbles': true,
-     'cancelable': false
-    });
     var node = this.getDOMNode().getElementsByTagName('input')[0];
-    if (node && node.type === 'file') {
+    if (e.target !== node && node.type === 'file') {
+      var event = new MouseEvent('click', {
+       'view': window,
+       'bubbles': true,
+       'cancelable': false
+      });
       node.dispatchEvent(event);
     }
   },
